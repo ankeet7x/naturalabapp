@@ -23,6 +23,34 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               color: bgColor,
             ),
+          ),
+          Container(
+            height: size.height * 0.4835,
+            width: size.width,
+            color: bgColor,
+            child: Stack(
+              children: <Widget>[
+                Positioned(
+                  top: 20,
+                  left: 45,
+                  child: Text(
+                    "NATURAL TONER MASSAGER",
+                    style: TextStyle(
+                        color: buttonColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22),
+                  ),
+                ),
+                Positioned(
+                  top: 60,
+                  left: 45,
+                  child: Text(
+                    "fjaslkdjflksadjf asfdjsadlkfjasd \nsjdkfjaslkfjalskdjflksadjflksj",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),
