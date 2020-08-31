@@ -10,6 +10,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<bool> isSelected;
+
+  @override
+  void initState() {
+    isSelected = [true, false];
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -49,6 +57,58 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
+                Positioned(
+                  top: 100,
+                  left: 45,
+                  child: ToggleButtons(
+                    fillColor: buttonColor,
+                    selectedColor: bgColor,
+                    children: <Widget>[
+                      Container(
+                        width: size.width * 0.13,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15.0),
+                          child: Text("A1"),
+                        ),
+                      ),
+                      Container(
+                        width: size.width * 0.13,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15.0),
+                          child: Text("A2"),
+                        ),
+                      ),
+                      // Container(
+                      //   width: size.width * 0.13,
+                      //   child: Padding(
+                      //     padding: EdgeInsets.only(left: 15),
+                      //     child: Text("A3"),
+                      //   ),
+                      // )
+                    ],
+                    onPressed: (int index) {
+                      setState(() {
+                        isSelected[index] = !isSelected[index];
+                      });
+                    },
+                    isSelected: isSelected,
+                  ),
+                ),
+                Positioned(
+                  top: 150,
+                  left: 45,
+                  child: RaisedButton(
+                    splashColor: bgColor,
+                    color: buttonColor,
+                    child: Center(
+                      child: Text(
+                        "Add to Cart",
+                        style: TextStyle(color: bgColor),
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
+                )
               ],
             ),
           )
